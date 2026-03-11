@@ -4,10 +4,10 @@ import SearchBar from "../components/SearchBar";
 
 export default function Home() {
   return (
-     <main className="p-4 space-y-6 pb-24">
+    <main className="p-4 space-y-6 pb-24">
       <SearchBar />
 
-      <h1 className="text-xl font-semibold">Discover</h1>
+      <h1 className="text-xl font-semibold text-gray-900">Discover</h1>
 
       <HighlightCard
         title="Premium Sneakers Collection"
@@ -28,12 +28,12 @@ export default function Home() {
         <ProductCard
           title="Wireless Headphones"
           price="$249"
-          image="https://images.unsplash.com/photo-1518441902110-7f7f60b1b5f6?w=800"
+          image="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800"
         />
         <ProductCard
           title="Smart Lamp"
           price="$89"
-          image="https://images.unsplash.com/photo-1505691723518-36a5ac3b2bde?w=800"
+          image="https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=800"
         />
       </div>
     </main>
