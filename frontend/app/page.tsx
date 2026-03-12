@@ -1,12 +1,13 @@
 import ProductCard from "../components/ProductCard";
 import HighlightCard from "../components/HighlightCard";
 import SearchBar from "../components/SearchBar";
+import CategoryChips from "../components/CategoryChips";
 
 export default function Home() {
   return (
     <main className="p-4 space-y-6 pb-24">
       <SearchBar />
-
+      <CategoryChips />
       <h1 className="text-xl font-semibold text-gray-900">Discover</h1>
 
       <HighlightCard
