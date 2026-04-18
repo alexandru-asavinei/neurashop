@@ -1,3 +1,7 @@
+
+import { useCart } from "../../../context/CartContext";
+import AddToCartButton from "../../../components/AddToCartButton";
+
 const products = {
   "minimal-watch": {
     title: "Minimal Watch",
@@ -32,6 +36,7 @@ export default async function ProductPage({
 }) {
   const { id } = await params;
 
+
   const product = products[id as keyof typeof products];
 
   if (!product) {
@@ -64,9 +69,7 @@ export default async function ProductPage({
         This is a premium product available on NeuraShop.
       </p>
 
-      <button className="w-full py-4 rounded-xl bg-black text-white font-medium">
-        Add to Cart
-      </button>
+  <AddToCartButton product={{ id, ...product }} />
     </main>
   );
 }

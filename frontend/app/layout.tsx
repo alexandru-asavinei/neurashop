@@ -1,5 +1,6 @@
 import "./globals.css";
 import MobileNav from "../components/MobileNav";
+import { CartProvider } from "../context/CartContext";
 
 export const metadata = {
   title: "NeuraShop",
@@ -14,10 +15,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-[#FAFAFB] text-black">
+        <CartProvider>
         <div className="max-w-md mx-auto min-h-screen bg-[#FAFAFB] relative pb-20">
           {children}
           <MobileNav />
         </div>
+        </CartProvider>
       </body>
     </html>
   );
