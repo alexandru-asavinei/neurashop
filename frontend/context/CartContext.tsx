@@ -14,21 +14,24 @@ type CartContextType = {
   cart: Product[];
   addToCart: (product: Product) => void;
   removeFromCart: (index: number) => void;
+  clearCart: () => void;
 };
+
+
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
 
   const [cart, setCart] = useState<Product[]>(() => {
-  if (typeof window !== "undefined") {
-    const saved = localStorage.getItem("cart");
-    return saved ? JSON.parse(saved) : [];
-  }
-  return [];
-});
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem("cart");
+      return saved ? JSON.parse(saved) : [];
+    }
+    return [];
+  });
 
- // 🔥 QUI VA QUESTO
+  // 🔥 QUI VA QUESTO
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
@@ -37,21 +40,34 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     setCart((prev) => [...prev, product]);
   };
 
-  const removeFromCart = (index: number) => {
+ const removeFromCart = (index: number) => {
   setCart((prev) => prev.filter((_, i) => i !== index));
 };
 
-  return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
-      {children}
-    </CartContext.Provider>
-  );
+const clearCart = () => {
+  setCart([]);
+};
+
+return (
+  <CartContext.Provider
+    value={{
+      cart,
+      addToCart,
+      removeFromCart,
+      clearCart,
+    }}
+  >
+    {children}
+  </CartContext.Provider>
+);
 }
 
 export function useCart() {
   const context = useContext(CartContext);
+
   if (!context) {
     throw new Error("useCart must be used within CartProvider");
   }
+
   return context;
 }
