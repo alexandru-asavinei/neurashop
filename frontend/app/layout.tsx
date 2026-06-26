@@ -14,9 +14,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-[#FAFAFB] text-black">
+      <body className="bg-background text-black">
         <CartProvider>
-        <div className="max-w-md mx-auto min-h-screen bg-[#FAFAFB] relative pb-20">
+        <div className="max-w-md mx-auto min-h-screen bg-background relative pb-20">
           {children}
           <MobileNav />
         </div>

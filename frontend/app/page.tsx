@@ -8,7 +8,9 @@ export default function Home() {
     <main className="p-4 space-y-6 pb-24">
       <SearchBar />
       <CategoryChips />
-      <h1 className="text-xl font-semibold text-gray-900">Discover</h1>
+      <h1 className="text-2xl font-bold text-primary">
+        Discover
+      </h1>
 
       <HighlightCard
         title="Premium Sneakers Collection"

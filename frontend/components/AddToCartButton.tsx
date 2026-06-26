@@ -11,7 +11,7 @@ export default function AddToCartButton({ product }: any) {
         console.log("CLICK", product); // 👈 DEBUG
         addToCart(product);
       }}
-      className="w-full py-4 rounded-xl bg-black text-white font-medium cursor-pointer hover:bg-gray-900 transition active:scale-95"
+      className="w-full py-4 rounded-xl bg-primary text-white font-medium cursor-pointer hover:opacity-90 transition active:scale-95"
     >
       Add to Cart
     </button>

@@ -41,7 +41,7 @@ export default async function ProductPage({
 
   if (!product) {
     return (
-      <div className="p-4 text-red-500">
+      <div className="p-4 text-danger">
         Product not found: {id}
       </div>
     );
@@ -56,16 +56,16 @@ export default async function ProductPage({
       />
 
       <div className="space-y-2">
-        <h1 className="text-2xl font-semibold text-gray-900">
+        <h1 className="text-2xl font-semibold text-primary">
           {product.title}
         </h1>
 
-        <p className="text-lg font-semibold text-gray-800">
+        <p className="text-lg font-semibold text-primary">
           {product.price}
         </p>
       </div>
 
-      <p className="text-gray-600">
+      <p className="text-secondary">
         This is a premium product available on NeuraShop.
       </p>
 
