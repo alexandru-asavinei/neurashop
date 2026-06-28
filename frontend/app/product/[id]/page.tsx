@@ -1,33 +1,8 @@
 
 import { useCart } from "../../../context/CartContext";
 import AddToCartButton from "../../../components/AddToCartButton";
+import { products } from "../../../data/products";
 
-const products = {
-  "minimal-watch": {
-    title: "Minimal Watch",
-    price: "$199",
-    image:
-      "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800",
-  },
-  "modern-backpack": {
-    title: "Modern Backpack",
-    price: "$129",
-    image:
-      "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=800",
-  },
-  "wireless-headphones": {
-    title: "Wireless Headphones",
-    price: "$249",
-    image:
-      "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800",
-  },
-  "smart-lamp": {
-    title: "Smart Lamp",
-    price: "$89",
-    image:
-      "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=800",
-  },
-};
 
 export default async function ProductPage({
   params,
@@ -37,7 +12,9 @@ export default async function ProductPage({
   const { id } = await params;
 
 
-  const product = products[id as keyof typeof products];
+const product = products.find(
+  (product) => product.id === id
+);
 
   if (!product) {
     return (
@@ -69,7 +46,7 @@ export default async function ProductPage({
         This is a premium product available on NeuraShop.
       </p>
 
-  <AddToCartButton product={{ id, ...product }} />
+  <AddToCartButton product={product} />
     </main>
   );
 }
