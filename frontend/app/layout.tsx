@@ -4,6 +4,7 @@ import MobileNav from "../components/MobileNav";
 
 import { CartProvider } from "../context/CartContext";
 import { WishlistProvider } from "../context/WishlistContext";
+import { SearchProvider } from "../context/SearchContext";
 
 export const metadata = {
   title: "NeuraShop",
@@ -18,14 +19,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-background text-black">
-        <WishlistProvider>
-          <CartProvider>
-            <div className="max-w-md mx-auto min-h-screen bg-background relative pb-20">
-              {children}
-              <MobileNav />
-            </div>
-          </CartProvider>
-        </WishlistProvider>
+        <SearchProvider>
+          <WishlistProvider>
+            <CartProvider>
+              <div className="max-w-md mx-auto min-h-screen bg-background relative pb-20">
+                {children}
+                <MobileNav />
+              </div>
+            </CartProvider>
+          </WishlistProvider>
+        </SearchProvider>
       </body>
     </html>
   );
