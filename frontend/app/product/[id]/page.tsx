@@ -1,8 +1,7 @@
-
-import { useCart } from "../../../context/CartContext";
 import AddToCartButton from "../../../components/AddToCartButton";
-import { products } from "../../../data/products";
+import AddToWishlistButton from "../../../components/AddToWishlistButton";
 
+import { products } from "../../../data/products";
 
 export default async function ProductPage({
   params,
@@ -11,10 +10,9 @@ export default async function ProductPage({
 }) {
   const { id } = await params;
 
-
-const product = products.find(
-  (product) => product.id === id
-);
+  const product = products.find(
+    (product) => product.id === id
+  );
 
   if (!product) {
     return (
@@ -26,11 +24,17 @@ const product = products.find(
 
   return (
     <main className="p-4 pb-24 space-y-6">
-      <img
-        src={product.image}
-        alt={product.title}
-        className="w-full h-80 object-cover rounded-2xl"
-      />
+      <div className="relative">
+        <img
+          src={product.image}
+          alt={product.title}
+          className="w-full h-80 object-cover rounded-2xl"
+        />
+
+        <div className="absolute top-4 right-4">
+          <AddToWishlistButton product={product} />
+        </div>
+      </div>
 
       <div className="space-y-2">
         <h1 className="text-2xl font-semibold text-primary">
@@ -46,7 +50,7 @@ const product = products.find(
         This is a premium product available on NeuraShop.
       </p>
 
-  <AddToCartButton product={product} />
+      <AddToCartButton product={product} />
     </main>
   );
 }
