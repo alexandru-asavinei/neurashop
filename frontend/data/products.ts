@@ -3,6 +3,7 @@ export type Product = {
   title: string;
   price: string;
   image: string;
+  category: string;
 };
 
 export const products: Product[] = [
@@ -12,6 +13,7 @@ export const products: Product[] = [
     price: "$199",
     image:
       "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800",
+    category: "Watches",
   },
   {
     id: "modern-backpack",
@@ -19,6 +21,7 @@ export const products: Product[] = [
     price: "$129",
     image:
       "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=800",
+    category: "Bags",
   },
   {
     id: "wireless-headphones",
@@ -26,6 +29,7 @@ export const products: Product[] = [
     price: "$249",
     image:
       "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800",
+    category: "Tech",
   },
   {
     id: "smart-lamp",
@@ -33,5 +37,6 @@ export const products: Product[] = [
     price: "$89",
     image:
       "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=800",
+    category: "Home",
   },
 ];

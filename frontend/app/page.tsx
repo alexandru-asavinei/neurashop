@@ -6,16 +6,25 @@ import SearchBar from "../components/SearchBar";
 import CategoryChips from "../components/CategoryChips";
 
 import { products } from "../data/products";
+
 import { useSearch } from "../context/SearchContext";
+import { useCategory } from "../context/CategoryContext";
 
 export default function Home() {
   const { search } = useSearch();
+  const { category } = useCategory();
 
-  const filteredProducts = products.filter((product) =>
-    product.title
+  const filteredProducts = products.filter((product) => {
+    const matchesSearch = product.title
       .toLowerCase()
-      .includes(search.toLowerCase())
-  );
+      .includes(search.toLowerCase());
+
+    const matchesCategory =
+      category === "All" ||
+      product.category === category;
+
+    return matchesSearch && matchesCategory;
+  });
 
   return (
     <main className="p-4 space-y-6 pb-24">
@@ -41,6 +50,7 @@ export default function Home() {
               title={product.title}
               price={product.price}
               image={product.image}
+              category={product.category}
             />
           ))}
         </div>

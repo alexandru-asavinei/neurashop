@@ -8,6 +8,7 @@ type ProductCardProps = {
   title: string;
   price: string;
   image: string;
+  category: string;
 };
 
 export default function ProductCard({
@@ -15,6 +16,7 @@ export default function ProductCard({
   title,
   price,
   image,
+  category,
 }: ProductCardProps) {
   return (
     <div className="relative">
@@ -45,6 +47,7 @@ export default function ProductCard({
             title,
             price,
             image,
+            category,
           }}
         />
       </div>
